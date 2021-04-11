@@ -1,8 +1,17 @@
 <!doctype html>
 <html>
+        <head>
+                <div class = 'alert alert-primary'>
+                <h2>Saw a squirrel?</h2>
+                <p>You can add the sighting details here</p>
+                </div>
+          <br>
+        </head>      
     <form action="." method="post">
         {% csrf_token %}
         {{ form }}
+        <br>
+        <p> Add these details to the database by clicking the "Submit" button below</p>
         <input type="submit" value="Submit" />
     </form>
 </html>

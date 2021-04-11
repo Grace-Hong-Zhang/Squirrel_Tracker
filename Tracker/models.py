@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 class Squirrel(models.Model):
+
     x = models.FloatField(help_text = _('Longititude'))
     y = models.FloatField(help_text = _('Latititude'))
     unique_squirrel_id = models.CharField(max_length = 32, help_text=_('Unique Squirrel ID'),
