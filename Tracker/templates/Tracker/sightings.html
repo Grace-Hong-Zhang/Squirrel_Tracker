@@ -5,16 +5,21 @@
     </header>
     <body>
         <h2>
-            <p><a href="/sightings/add">Add a sighting</a></p>
+            <p><a href="/sightings/add" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true"><strong>Add New Sighting</strong></a></p>
+            <p><a href="/map/" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true"><strong>Sightings Map</strong></a></p>
+            <p><a href="/sightings/stats" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true"><strong>Sightings Statistics</strong></a></p>
+            <p><a href></a></p>
         </h2>
         <table>
 		    {% for squirrel in squirrels %}
 		    <tr>
-			    <td>{{squirrel.unique_squirrel_id}}</td>
-			    <td>{{squirrel.date}}</td>
 			    <td><a href="/sightings/{{ squirrel.unique_squirrel_id }}/">
                     {{squirrel.unique_squirrel_id}}
                 </a></td>
+                <td>{{squirrel.unique_squirrel_id}}</td>
+                <td>{{squirrel.date}}</td>
+                <td>{{squirrel.x}}</td>
+                <td>{{squirrel.y}}</td>
 		    </tr>
 		    {% endfor %}
 	    </table>
