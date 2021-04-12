@@ -8,14 +8,16 @@ def map(request):
     context = {
         'squirrels': squirrels,
     }
-    return render(request, 'Tracker/map.html', context)
+    return render(request, 'sightings/map.html', context)
 
 def sightings(request):
     squirrels = Squirrel.objects.all()
+    fields = ['Unique_Squirrel_Id','Longtitude','Latitude','Date','Shift']
     context = {
         'squirrels': squirrels,
+        'fields': fields,
     }
-    return render(request, 'Tracker/sightings.html', context)
+    return render(request, 'sightings/sightings.html', context)
 
 def add(request):
     if request.method == 'POST':
@@ -23,12 +25,12 @@ def add(request):
         
         if form.is_valid():
             form.save()
-        return redirect('Tracker/sightings/')
+        return redirect('/sightings/')
     
     else:
         form = SquirrelForm()
         context = {'form': form}
-    return render(request, 'Tracker/sightings/add.html', context)
+    return render(request, 'sightings/add.html', context)
     
 def update(request,id):
     obj=get_object_or_404(Squirrel,unique_id=id)
@@ -36,9 +38,9 @@ def update(request,id):
     context={'form':form}
     if form.is_valid():
         form.save()
-        return redirect('Tracker/sightings/')
+        return redirect('/sightings')
     else:
-        return render(request,'Tracker/sightings/update.html',context)
+        return render(request,'sightings/update.html',context)
 
 def stats(request):
     sights = Squirrel.objects.all()
@@ -89,7 +91,7 @@ def stats(request):
     
     context = {
             'total_squirrel':sq_nums,
-            'Shift': {'AM': am_amount,'PM': pm_amount}
+            'Shift': {'AM': am_amount,'PM': pm_amount},
             'Shift_pct': {'AM': AM_pct,'PM': PM_pct},
             'Age': {'Juvenile': Juvenile_n, 'Adult': Adult_n},
             'Age_pct': {'Juvenile': Juvenile_pct, 'Adult': Adult_pct},
@@ -100,7 +102,7 @@ def stats(request):
             'Runs_From': {'True':True_n, 'False':False_n},
             'Runs_From_pct': {'True':True_pct, 'False':False_pct},
             }
-    return render(request, 'Tracker/sightings/stats.html',{'context': context})
+    return render(request, 'sightings/stats.html',{'context': context})
 
 
 def details(request,squirrel_id):
@@ -110,4 +112,16 @@ def details(request,squirrel_id):
     context = {
             'form':form,
     }
-    return render(request, 'Tracker/sightings/details.html', context)
+    return render(request, 'sightings/details.html', context)
+
+def homepage_view(request):
+    return render(request,'sightings/homepage.html')
+
+# def list_sights(request):
+#     sights = Squirrel.objects.all()
+#     fields = ['Unique_Squirrel_Id','Longtitude','Latitude','Date','Shift']
+#     context = {
+#             'sights':sights,
+#             'fields':fields,
+#             }
+#     return render(request, 'Tracker/list.html', context)
