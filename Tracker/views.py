@@ -25,22 +25,24 @@ def add(request):
         
         if form.is_valid():
             form.save()
-        return redirect('/sightings/')
+            return redirect('/sightings/')
     
     else:
         form = SquirrelForm()
-        context = {'form': form}
+    context = {'form': form}
     return render(request, 'sightings/add.html', context)
     
-def update(request,id):
-    obj=get_object_or_404(Squirrel,unique_id=id)
-    form=SquirrelForm(request.POST,instance=obj)
-    context={'form':form}
-    if form.is_valid():
-        form.save()
-        return redirect('/sightings')
+def update(request,unique_squirrel_id):
+    sight = Squirrel.objects.get(unique_squirrel_id=unique_squirrel_id)
+    if request.method == 'POST':
+        form=SquirrelForm(request.POST, instance=sight)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings')
     else:
-        return render(request,'sightings/update.html',context)
+            form = SquirrelForm(instance=sight)
+    context={'form':form}
+    return render(request,'sightings/update.html',context)
 
 def stats(request):
     sights = Squirrel.objects.all()
@@ -55,17 +57,17 @@ def stats(request):
     PM_pct = '{:.2%}'.format(PM_pct)
 
     #age
-    Juvenile_n = sights.filter(Age='Juvenile').count()
-    Adult_n = sights.filter(Age='Adult').count()
+    Juvenile_n = sights.filter(age='Juvenile').count()
+    Adult_n = sights.filter(age='Adult').count()
     Juvenile_pct = Juvenile_n / (Juvenile_n + Adult_n)
     Juvenile_pct = "{:.2%}".format(Juvenile_pct)
     Adult_pct = Adult_n / (Juvenile_n + Adult_n)
     Adult_pct = "{:.2%}".format(Adult_pct)
     
     #primary_fur_color
-    Black_n = sights.filter(Primary_Fur_Color='Black').count()
-    Gray_n = sights.filter(Primary_Fur_Color='Gray').count()
-    Cinnamon_n = sights.filter(Primary_Fur_Color='Cinnamon').count()
+    Black_n = sights.filter(primary_fur_color='Black').count()
+    Gray_n = sights.filter(primary_fur_color='Gray').count()
+    Cinnamon_n = sights.filter(primary_fur_color='Cinnamon').count()
     Black_pct = Black_n / (Black_n+Gray_n+Cinnamon_n)
     Black_pct = "{:.2%}".format(Black_pct)
     Gray_pct = Gray_n / (Black_n+Gray_n+Cinnamon_n)
@@ -74,16 +76,16 @@ def stats(request):
     Cinnamon_pct = "{:.2%}".format(Cinnamon_pct)
 
     #location
-    Above_Ground_n = sights.filter(Location='Above Ground').count()
-    Ground_Plane_n = sights.filter(Location='Ground Plane').count()
+    Above_Ground_n = sights.filter(location='Above Ground').count()
+    Ground_Plane_n = sights.filter(location='Ground Plane').count()
     Above_Ground_pct = Above_Ground_n / (Above_Ground_n+Ground_Plane_n)
     Above_Ground_pct = "{:.2%}".format(Above_Ground_pct)
     Ground_Plane_pct = Ground_Plane_n / (Above_Ground_n+Ground_Plane_n)
     Ground_Plane_pct= "{:.2%}".format(Ground_Plane_pct)
 
     #runs_from
-    True_n = sights.filter(Runs_From=True).count()
-    False_n = sights.filter(Runs_From=False).count()
+    True_n = sights.filter(runs_from=True).count()
+    False_n = sights.filter(runs_from=False).count()
     True_pct = True_n / (True_n+False_n)
     True_pct = "{:.2%}".format(True_pct)
     False_pct = False_n / (True_n+False_n)

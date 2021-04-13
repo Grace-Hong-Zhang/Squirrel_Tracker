@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <header>
-        <h1>All sightings</h1>
-    </header>
+    <head>
+        <title>All sightings</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    </head>
     <body>
-        <h2>
+        <style>
+            body {
+              padding-left: 10px; padding-right: 10px;
+            }
+        </style>
+        <strong><h2> <img src="https://th.bing.com/th/id/R7d82c1aba2437fcdbc7d278c45118fdf?rik=bC6W7OQVunZoNA&riu=http%3a%2f%2fphoto-static-api.fotomore.com%2fcreative%2fvcg%2fveer%2f612%2fveer-142244076.jpg&ehk=zXXtCZViPwmDxTrzdi4pimYG9gdcfLgS0CsPFd7T%2fA8%3d&risl=&pid=ImgRaw" style="width:60px" class="rounded" alt="..." >    We've recorded all the states of squirrels here    <img src="https://th.bing.com/th/id/R7d82c1aba2437fcdbc7d278c45118fdf?rik=bC6W7OQVunZoNA&riu=http%3a%2f%2fphoto-static-api.fotomore.com%2fcreative%2fvcg%2fveer%2f612%2fveer-142244076.jpg&ehk=zXXtCZViPwmDxTrzdi4pimYG9gdcfLgS0CsPFd7T%2fA8%3d&risl=&pid=ImgRaw" style="width:60px" class="roun
+            ded" alt="..." ></strong></h2>
+        <h2=>
             <p><a href="/sightings/add" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true"><strong>Add New Sighting</strong></a></p>
             <p><a href="/map/" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true"><strong>Sightings Map</strong></a></p>
             <p><a href="/sightings/stats" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true"><strong>Sightings Statistics</strong></a></p>
             <p><a href></a></p>
         </h2>
-        <table>
+        <table class="table">
+            <div class="alert alert-dark text-center" role="alert">
+				<h5><strong> Squirrel Sighting Records </strong></h5>
+            </div>
+            <thead class = "thead-dark">
+                <tr>
+                    <th scope = "col">Unique Squirrel Id</th>
+                    <th scope = "col">Longitude</th>
+                    <th scope = "col">Latitude</th>
+                    <th scope = "col">Date</th>
+                    <th scope = "col">Shift</th>
+                </tr>
+            </thead>
 		    {% for squirrel in squirrels %}
 		    <tr>
-			    <td><a href="/sightings/{{ squirrel.unique_squirrel_id }}/">
-                    {{squirrel.unique_squirrel_id}}
-                </a></td>
-                <td>{{squirrel.unique_squirrel_id}}</td>
-                <td>{{squirrel.date}}</td>
+			    <td><a href="{{squirrel.unique_squirrel_id}}/">{{squirrel.unique_squirrel_id}}</a></td>
                 <td>{{squirrel.x}}</td>
                 <td>{{squirrel.y}}</td>
+                <td>{{squirrel.date}}</td>
+                <td>{{squirrel.shift}}</td>
 		    </tr>
 		    {% endfor %}
 	    </table>

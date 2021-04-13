@@ -2,16 +2,21 @@
 <html>
         <head>
                 <div class = 'alert alert-primary'>
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
                 <h2>Saw a squirrel?</h2>
                 <p>You can add the sighting details here</p>
                 </div>
           <br>
         </head>      
+        <body>
+            <style>body{padding-left:10px; padding-right:10px;}</style>
+
     <form action="." method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <br>
-        <p> Add these details to the database by clicking the "Submit" button below</p>
+        <p> Add these details to the database by clicking the "Submit" button below  <img src="https://image.flaticon.com/icons/svg/1140/1140163.svg" style="width:30px" class="rounded" alt="..." ></p>
         <input type="submit" value="Submit" />
     </form>
+    </body>
 </html>
