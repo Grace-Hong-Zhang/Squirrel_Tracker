@@ -15,12 +15,13 @@ The app created has the following functions:
 5. /sightings/stats shows 5 very important statisitics about the squirrels
 
 
-## Group name
-Project Group: **2**
-
+## Group name and section
+Project Group **2**
+Section **1**
 ## Members
 **UNIs**: [cq2223, hz2703] 
 
-
+## The link to the server running our application
+https://tfa-2021-spring-cq2223.df.r.appspot.com/
 
  
