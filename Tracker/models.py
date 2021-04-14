@@ -4,7 +4,7 @@ from django.utils.translation import gettext as _
 class Squirrel(models.Model):
 
     x = models.FloatField(help_text = _('Longititude'))
-    y = models.FloatField(help_text = _('Latititude'))
+    y = models.FloatField(help_text = _('Latitude'))
     unique_squirrel_id = models.CharField(max_length = 32, help_text=_('Unique Squirrel ID'),
                             primary_key=True)
     hectare = models.CharField(max_length = 32, help_text = _('Hectare'))

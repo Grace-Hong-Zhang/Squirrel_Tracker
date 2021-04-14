@@ -12,7 +12,7 @@ def map(request):
 
 def sightings(request):
     squirrels = Squirrel.objects.all()
-    fields = ['Unique_Squirrel_Id','Longtitude','Latitude','Date','Shift']
+    fields = ['Unique_Squirrel_Id','Longitude','Latitude','Date','Shift']
     context = {
         'squirrels': squirrels,
         'fields': fields,
@@ -119,11 +119,3 @@ def details(request,squirrel_id):
 def homepage_view(request):
     return render(request,'sightings/homepage.html')
 
-# def list_sights(request):
-#     sights = Squirrel.objects.all()
-#     fields = ['Unique_Squirrel_Id','Longtitude','Latitude','Date','Shift']
-#     context = {
-#             'sights':sights,
-#             'fields':fields,
-#             }
-#     return render(request, 'Tracker/list.html', context)

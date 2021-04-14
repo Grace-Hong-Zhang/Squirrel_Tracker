@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='Squirrel',
             fields=[
                 ('x', models.FloatField(help_text='Longititude')),
-                ('y', models.FloatField(help_text='Latititude')),
+                ('y', models.FloatField(help_text='Latitude')),
                 ('unique_squirrel_id', models.CharField(help_text='Unique Squirrel ID', max_length=32, primary_key=True, serialize=False)),
                 ('hectare', models.CharField(help_text='Hectare', max_length=32)),
                 ('shift', models.CharField(choices=[('AM', 'AM'), ('PM', 'PM')], help_text='Time of day', max_length=32)),

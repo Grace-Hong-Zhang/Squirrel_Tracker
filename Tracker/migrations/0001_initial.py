@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('x', models.FloatField(help_text='Longititude')),
-                ('y', models.FloatField(help_text='Latititude')),
+                ('y', models.FloatField(help_text='Latitude')),
                 ('unique_squirrel_id', models.CharField(help_text='Unique Squirrel ID', max_length=32)),
                 ('hectare', models.CharField(help_text='Hectare', max_length=32)),
                 ('shift', models.CharField(choices=[('AM', 'AM'), ('PM', 'PM')], help_text='Time of day', max_length=32)),
