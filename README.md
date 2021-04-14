@@ -13,10 +13,13 @@ The app created has the following functions:
        a. import_squirrel_data: A command that can be used to import the data from the 2018 census file (in CSV format) 
        b. export_squirrel_data: A command that can be used to export the squirrel data in CSV format
        
-2. /map/ shows a map marked with random 100 squireel locations in the Central Park, New York
-3. /sightings/ shows a list of squirrels indicated by their Unique Squirrel IDs and you can edit the squirrel information by clicking on the Unique Squirrel ID. After submission, the database of the squirrels will change accordingly.
-4. /sightings/add/ gives an empty form and you can add your customized squirrel by filling out the attributes. After submission, the database will change accordingly. Notice: the Date format: yyyy-mm-dd.
-5. /sightings/stats shows 5 very important statisitics about the squirrels
+2. Views in the app:
+
+       a. /map/ shows a map marked with random 100 squireel locations in the Central Park, New York
+       b. /sightings/ shows a list of squirrels indicated by their Unique Squirrel IDs and you can edit the squirrel information by clicking on the Unique Squirrel ID. After submission, the database of the squirrels will change accordingly.
+       c. /sightings/add/ gives an empty form and you can add your customized squirrel by filling out the attributes. After submission, the database will change accordingly. Notice: the Date format: yyyy-mm-dd.
+       d. /sightings/stats shows 5 very important statisitics about the squirrels.
+
 
 
 ## Group name and section
