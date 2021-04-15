@@ -7,7 +7,7 @@ class Squirrel(models.Model):
     y = models.FloatField(help_text = _('Latitude'))
     unique_squirrel_id = models.CharField(max_length = 32, help_text=_('Unique Squirrel ID'),
                             primary_key=True)
-    hectare = models.CharField(max_length = 32, help_text = _('Hectare'))
+    # hectare = models.CharField(max_length = 32, help_text = _('Hectare'))
     shift = models.CharField(max_length = 32, help_text = _('Time of day'), 
                             choices = (('AM', 'AM'), ('PM', 'PM')))
     date = models.CharField(max_length = 32, help_text = _('The format is in yyyy-mm-dd'))
@@ -16,8 +16,8 @@ class Squirrel(models.Model):
                             choices = (('Juvenile', 'Juvenile'), ('Adult', 'Adult'), (Unknown, '?')), blank = True)
     primary_fur_color = models.CharField(max_length = 32, help_text = _('primary fur color'),
                             choices = (('Gray', 'Gray'), ('Cinnamon', 'Cinnamon'), ('Black', 'Black'), ('Cinnamon','Cinnamon'), (None, '')), blank = True)
-    highlight_fur_color = models.CharField(max_length = 32, help_text = _('highlight fur color'),
-                            choices = (('Gray', 'Gray'), ('Cinnamon', 'Cinnamon'), ('Black', 'Black'), ('Cinnamon','Cinnamon'), (None, '')), blank = True)
+    # highlight_fur_color = models.CharField(max_length = 32, help_text = _('highlight fur color'),
+    #                         choices = (('Gray', 'Gray'), ('Cinnamon', 'Cinnamon'), ('Black', 'Black'), ('Cinnamon','Cinnamon'), (None, '')), blank = True)
     location = models.CharField(max_length = 128, help_text = _('location'),
                             choices = (('Ground Plane', 'Ground Plane'), ('Above Ground', 'Above Ground'), (None, '')), blank = True)
     specific_location = models.CharField(max_length = 128, help_text = _('Additional notes to the location'), blank = True)

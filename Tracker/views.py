@@ -12,7 +12,7 @@ def map(request):
 
 def sightings(request):
     squirrels = Squirrel.objects.all()
-    fields = ['Unique_Squirrel_Id','Longitude','Latitude','Date','Shift']
+    fields = ['Unique_Squirrel_Id','Date','Shift']
     context = {
         'squirrels': squirrels,
         'fields': fields,
@@ -107,12 +107,10 @@ def stats(request):
     return render(request, 'sightings/stats.html',{'context': context})
 
 
-def details(request,squirrel_id):
-    squirrel = Sighting.objects.get(id = squirrel_id)
-    if request.method == 'GET':
-        form = SightingForm(instance = squirrel)
+def details(request,unique_squirrel_id):
+    squirrel = Squirrel.objects.get(unique_squirrel_id = unique_squirrel_id)
     context = {
-            'form':form,
+            'squirrel':squirrel,
     }
     return render(request, 'sightings/details.html', context)
 

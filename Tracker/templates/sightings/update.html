@@ -4,7 +4,9 @@
 		<title>Update the Squirrel Sighting</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-<body>
+<body background="https://th.bing.com/th/id/Rf54e60e87e0899ea2f6e7c64eae9c18b?rik=N6hWtNDPo8DYbQ&riu=http%3a%2f%2fimg1.juimg.com%2f161215%2f355846-1612150K55690.jpg&ehk=y0aZYh4BSwjSxvyl0VlaORgbyjO%2fsAQdHtu5HIKLkW0%3d&risl=&pid=ImgRaw" style=" background-repeat:no-repeat;
+background-size:100% 100%; 
+background-attachment: fixed;">
 	<style>body{padding-left:10px; padding-right:10px;}</style>
 	<p>
 		<br>
@@ -12,8 +14,31 @@
 		</h2>
 <form action='.' method="post">
 	{% csrf_token %}
-	{{ form }}
+	<div>
+		<label for="id_{{ form.x.name }}">Longitude</label>
+		{{form.x}}
+	</div>
+	<div>
+		<label for="id_{{ form.y.name }}">Latitude</label>
+		{{form.y}}
+	</div>
+	<div>
+		<label for="id_{{ form.unique_squirrel_id.name }}">unique squirrel id</label>
+		{{form.unique_squirrel_id}}
+	</div>
+	<div>
+		<label for="id_{{ form.shift.name }}">Shift</label>
+		{{form.shift}}
+	</div>
+	<div>
+		<label for="id_{{ form.data.name }}">Date</label>
+		{{form.date}}
+	</div>
+	<div>
+		<label for="id_{{ form.age.name }}">Age</label>
+		{{form.age}}
+	</div>
 	<input type="submit" value="Update" />
 </form>
-</body>>
+</body>
 </html>
