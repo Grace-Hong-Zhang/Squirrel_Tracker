@@ -16,10 +16,9 @@ The app created has the following functions:
 2. Views in the app:
 
        a. /map/ randomly selects 100 squirrels and presents their coordinates on the map, providing us with the general range of activity of squirrels.
-       b. /sightings/ lists the information of all squirrels. The first column is the unique squirrel id of each squirrel. We can click it to view the details of this squirrel.
-       c. /sightings/update/ We can click it to modify and update the details of this squirrel.
-       d. /sightings/add/ When we see a new squirrel, we can register all the information of the squirrel through this function.
-       e. /sightings/stats/ statistics some important information of squirrel population in Central Park, such as age ratio, fur color ratio and so on.
+       b. /sightings/ lists the information of all squirrels. The first column is the unique squirrel id of each squirrel. We can click it to view the details of this squirrel, and we can update the information of each squirrel by clicking update in the third column.
+       c. /sightings/add/ When we see a new squirrel, we can register all the information of the squirrel through this function.
+       d. /sightings/stats/ statistics some important information of squirrel population in Central Park, such as age ratio, fur color ratio and so on.
 
 
 
